@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Ticket Booking - Booking Page</title>
+    <link rel="stylesheet" href="style3.css" />
+  </head>
+  <body>
+    <div class="movie-container">
+      <label>select a movie</label>
+      <select id="movie">
+        <option value="130" id="movieTheater1">The Avengers</option>
+        <option value="100" id="movieTheater2">Star Wars</option>
+        <option value="150" id="movieTheater3">Lion King</option>
+        
+      </select>
+    </div>
+
+    <ul class="showcase">
+      <li>
+        <div class="seat"></div>
+        <small>available</small>
+      </li>
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div class="seat occupied"></div>
+        <small>booked</small>
+      </li>
+    </ul>
+
+    <div id="container" class="container">
+      <div id="screen" class="screen"></div>
+    </div>
+    <p id="text" class="text">You have selected <span id="count">0</span> seats for a price of ₹<span id="total">0</span></p>
+    <div id="buttons" class="buttons displayNone">
+      <button class="buy">Book</button>
+      <button class="cancel">Cancel</button>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

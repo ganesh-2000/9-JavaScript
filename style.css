@@ -1,0 +1,204 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #446ae6;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  max-width: 870px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.buttons a {
+  background-color: #1ddd3d;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttons a:hover {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+}
+footer {
+  background-color: #446ae6;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  margin: 15px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie {
+  background-color: #eee;
+  width: 30%;
+  
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie img {
+  max-width: 100%;
+}
+
+.book-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  max-width: 500px;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.sbutton {
+  background-color: #0c0a0a;
+  color: #f1eff5;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type=text], input[type=email], input[type=tel], input[type=number], input[type=submit] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.gen{
+  color: rgb(202, 20, 142);
+  margin-top: 10px;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.d{
+  padding: 25px;
+}

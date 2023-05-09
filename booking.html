@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Ticket Booking - Booking Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Ticket Booking</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Booking</a></li>
+                <li><a href="now-showing.html">Now Showing</a></li>
+                <li><a href="signup.html" target="_blank">Signup</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <div style="float:right" class="gen">
+      <label for="genre-select">Filter movies by genre:</label>
+      <select id="genre-select" style="font-size:18px;">
+        <option value="">All genres</option>
+        <option value="Action">Action</option>
+        <!--<option value="Crime">Crime</option>-->
+        <option value="Drama">Drama</option>
+        <!-- Add more genres here -->
+      </select>
+      
+      <div id="search-results" class="d"></div>
+      
+      <script>
+        const genreSelect = document.querySelector("#genre-select");
+        genreSelect.addEventListener("change", () => {
+          const selectedGenre = genreSelect.value;
+          filterMoviesByGenre(selectedGenre);
+        });
+      </script>
+    </div>
+    <main>
+      <div style="float:right"><p> <h3>next show : <b id="timer"> </b></h3></p></div>
+
+        <br>
+        <!-- HTML code for the search feature -->
+        <input type="text" id="searchInput" placeholder="Search by movie title">
+        <button class="sbutton" onclick="searchMovies()">Search</button>
+
+        <div id="searchResults"></div>
+
+        <br><br>        
+        
+        <div class="movies">
+            <div class="movie">
+              <h3>The Avengers</h3>
+              <img src="img/movie1.jpg" alt="Movie 1 Poster">
+                <a href="show.html" class="book-button"  target="_blank">Book</a>
+            </div>
+            
+            <div class="movie">
+              <h3>Star Wars</h3>
+              <img src="img/movie2.jpg" alt="Movie 2 Poster">
+                <a href="show.html" class="book-button"  target="_blank">Book</a>
+            </div>
+            
+            <div class="movie">
+              <h3>Lion King</h3>
+              <img src="img/movie3.jpg" alt="Movie 3 Poster">
+              <a href="show.html" class="book-button"  target="_blank">Book</a>
+            </div>
+        </div>
+        
+       <!--
+         <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <iframe src="show.html" width="100%" height="400px"></iframe>
+            </div>
+        </div>
+       -->
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Movie Ticket Booking</p>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        const movies = [
+        {title: "The Avengers", director: " Anthony Russo", year: 2020},
+        {title: "Star Wars", director: "George Lucas", year: 2018},
+        {title: "Lion King", director: "Jon Favreau", year: 2019}
+        
+      ];
+    
+      function searchMovies() {
+        const searchQuery = document.getElementById("searchInput").value;
+        const searchResultsDiv = document.getElementById("searchResults");
+        searchResultsDiv.innerHTML = "";
+    
+        movies.forEach(movie => {
+          if (movie.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+            const movieDiv = document.createElement("div");
+            movieDiv.innerHTML = `<h4>${movie.title}</h4><p>Director: ${movie.director} (${movie.year})</p><br><br>`;
+            searchResultsDiv.appendChild(movieDiv);
+          }
+        });
+      }
+
+
+      
+const nextShowTime = new Date();
+nextShowTime.setHours(nextShowTime.getHours() + 2);
+
+function updateTimer() {
+    const now = new Date();
+    const timeLeft = nextShowTime.getTime() - now.getTime();
+  
+    // If the next show has already started, clear the interval
+    if (timeLeft < 0) {
+      clearInterval(timerInterval);
+      return;
+    }
+  
+    // Calculate the hours, minutes, and seconds left
+    const hoursLeft = Math.floor(timeLeft / 3600000);
+    const minutesLeft = Math.floor((timeLeft % 3600000) / 60000);
+    const secondsLeft = Math.floor((timeLeft % 60000) / 1000);
+  
+    // Update the timer on the page
+    const timerElement = document.getElementById('timer');
+    timerElement.textContent = `${hoursLeft}:${minutesLeft
+      .toString()
+      .padStart(2, '0')}:${secondsLeft.toString().padStart(2, '0')}`;
+  }
+  
+  // Call the updateTimer function every second
+  const timerInterval = setInterval(updateTimer, 1000);
+  
+  // Call the updateTimer function immediately to update the timer on page load
+  updateTimer();
+
+
+  const movie = [
+  {
+    title: "The Avengers",
+    director: "Anthony Russo",
+    rating: 9.3,
+    genre: ["Action"]
+  },
+  {
+    title: "Star Wars",
+    director: "George Lucas",
+    rating: 9.2,
+    genre: ["Action"]
+  },
+  {
+    title: "Lion King",
+    director: "Jon Favreau",
+    rating: 9.0,
+    genre: ["Drama"]
+  },
+  // Add more movies here
+];
+function filterMoviesByGenre(genre) {
+  // Filter the movies based on the selected genre
+  const filteredMovies = movie.filter(movie => movie.genre.includes(genre));
+  
+  // Generate the filtered results dynamically
+  const resultsContainer = document.querySelector("#search-results");
+  resultsContainer.innerHTML = ""; // Clear the previous search results
+  
+  if (filteredMovies.length === 0) {
+    resultsContainer.innerHTML = "No movies found for the selected genre";
+  } else {
+    filteredMovies.forEach(movie => {
+      const movieElement = document.createElement("d");
+      movieElement.classList.add("movie");
+      movieElement.innerHTML = `
+        <h2>${movie.title}</h2>
+        <p>Director: ${movie.director}</p>
+        <p>Rating: ${movie.rating}</p>
+        <p>Genre: ${movie.genre.join(", ")}</p>
+      `;
+      resultsContainer.appendChild(movieElement);
+    });
+  }
+}
+  
+    </script>
+
+
+
+</body>
+
+</html>
+
